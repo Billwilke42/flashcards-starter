@@ -4,7 +4,6 @@ const assert = require('chai').assert;
 const data = require('/Users/billwilke/Projects/Bills-Flashcards/src/data.js');
 const prototypeQuestions = data.prototypeData;
 
-const Turn = require('../src/Turn');
 const Card = require('../src/Card');
 const Deck = require('../src/Deck');
 const Round = require('../src/Round')
@@ -26,7 +25,6 @@ describe('Game', function() {
   it('should keep track of the current Round', function() {
     const cards = prototypeQuestions.map(card => new Card(card.id, card.question, card.answers, card.correctAnswer));
     const deck = new Deck(cards);
-    const round = new Round(deck)
     const game = new Game();
 
     game.start()
@@ -41,7 +39,6 @@ describe('Game', function() {
   it('should keep track of the current Round', function() {
     const cards = prototypeQuestions.map(card => new Card(card.id, card.question, card.answers, card.correctAnswer));
     const deck = new Deck(cards);
-    const round = new Round(deck)
     const game = new Game();
 
 
@@ -63,7 +60,6 @@ describe('Game', function() {
   it('should keep track of the current Round', function() {
     const cards = prototypeQuestions.map(card => new Card(card.id, card.question, card.answers, card.correctAnswer));
     const deck = new Deck(cards);
-    const round = new Round(deck)
     const game = new Game();
 
     game.start();
