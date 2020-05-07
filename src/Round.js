@@ -11,8 +11,7 @@ class Round {
   }
 
   returnCurrentCard() {
-    this.currentCard = this.deck.cards[this.turns]
-    return this.currentCard
+    return this.currentCard = this.deck.cards[this.turns]
   }
 
   takeTurn(guess) {
