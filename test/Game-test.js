@@ -23,42 +23,72 @@ describe('Game', function() {
     expect(game).to.be.an.instanceof(Game);
   });
 
-  // it.skip('should keep track of the current Round', function() {
-  //   const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-  //   const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
-  //   const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
-  //   const deck = new Deck([card1, card2, card3]);
-  //   const round = new Round(deck)
-  //   const game = new Game(round);
-  //
-  //   game.start()
-  //   console.log('HEY', round)
-  //   assert.deepEqual(game.currentRound, round)
-  //   console.log('HEYYY', game.currentRound)
-  //   round.returnCurrentCard()
-  //
-  //   assert.deepEqual(game.currentRound, round)
-  // });
-
   it('should keep track of the current Round', function() {
-    const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-    const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
-    const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
-    const deck = new Deck([card1, card2, card3]);
+    const cards = prototypeQuestions.map(card => new Card(card.id, card.question, card.answers, card.correctAnswer));
+    const deck = new Deck(cards);
     const round = new Round(deck)
     const game = new Game();
 
     game.start()
-    console.log(game.currentRound)
-    // assert.deepEqual(game.currentRound, round);
-    //
-    // round.returnCurrentCard()
-    //
-    // assert.deepEqual(game.currentRound, round);
-    //
-    // round.takeTurn();
-    // round.takeTurn();
-    //
-    // assert.deepEqual(game.currentRound, round);
+
+    assert.deepEqual(game.currentRound.turns, 0)
+
+    game.currentRound.takeTurn('array')
+
+    assert.deepEqual(game.currentRound.incorrectGuesses, [1])
+  });
+//
+  it('should keep track of the current Round', function() {
+    const cards = prototypeQuestions.map(card => new Card(card.id, card.question, card.answers, card.correctAnswer));
+    const deck = new Deck(cards);
+    const round = new Round(deck)
+    const game = new Game();
+
+
+    game.start();
+
+    game.currentRound.takeTurn('object');
+    assert.deepEqual(game.currentRound, game.currentRound);
+
+    game.currentRound.takeTurn('array');
+
+    assert.deepEqual(game.currentRound.turns, 2);
+
+    game.currentRound.takeTurn('accessor method');
+    game.currentRound.takeTurn('mutator method');
+
+    assert.deepEqual(game.currentRound, game.currentRound);
+  });
+
+  it('should keep track of the current Round', function() {
+    const cards = prototypeQuestions.map(card => new Card(card.id, card.question, card.answers, card.correctAnswer));
+    const deck = new Deck(cards);
+    const round = new Round(deck)
+    const game = new Game();
+
+    game.start();
+
+    game.currentRound.takeTurn('object');
+    assert.deepEqual(game.currentRound, game.currentRound);
+
+    game.currentRound.takeTurn('array');
+
+    assert.deepEqual(game.currentRound.turns, 2);
+
+    game.currentRound.takeTurn('accessor method');
+    game.currentRound.takeTurn('mutator method');
+
+    assert.deepEqual(game.currentRound, game.currentRound);
+
+    game.currentRound.takeTurn();
+    game.currentRound.takeTurn();
+    game.currentRound.takeTurn();
+    game.currentRound.takeTurn();
+    game.currentRound.takeTurn();
+    game.currentRound.takeTurn();
+    game.currentRound.takeTurn();
+    game.currentRound.takeTurn();
+
+    assert.deepEqual(game.currentRound, game.currentRound);
   });
 });
