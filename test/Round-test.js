@@ -31,6 +31,30 @@ describe('Round', function() {
     expect(round.deck).to.equal(deck)
   });
 
+  it('should have a turn property that starts at 0', function() {
+    const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+    const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
+
+    const deck = new Deck([card1, card2, card3]);
+
+    const round = new Round(deck);
+
+    expect(round.turns).to.equal(0)
+  });
+
+  it('should have a incorrectGuesses property that starts as an empty array', function() {
+    const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+    const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
+
+    const deck = new Deck([card1, card2, card3]);
+
+    const round = new Round(deck);
+
+    expect(round.incorrectGuesses).to.deep.equal([])
+  });
+
   it('should have a current card', function() {
     const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
@@ -43,7 +67,6 @@ describe('Round', function() {
     round.returnCurrentCard()
 
     assert.deepEqual(round.returnCurrentCard(), card1)
-    expect(round.currentCard).to.equal(card1)
   });
 
   it('should have a takeTurn method that updates turns count', function() {
