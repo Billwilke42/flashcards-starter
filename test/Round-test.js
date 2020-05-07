@@ -40,7 +40,7 @@ describe('Round', function() {
 
     const round = new Round(deck);
 
-     round.returnCurrentCard()
+    round.returnCurrentCard()
 
     assert.deepEqual(round.returnCurrentCard(), card1)
     expect(round.currentCard).to.equal(card1)
