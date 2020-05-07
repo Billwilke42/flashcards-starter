@@ -17,9 +17,14 @@ describe('Game', function() {
     expect(Game).to.be.a('function');
   });
 
-  it('should be an instance of Round', function() {
+  it('should be an instance of Game', function() {
     const game = new Game();
     expect(game).to.be.an.instanceof(Game);
+  });
+
+  it('should have a currentRound of null', function() {
+    const game = new Game();
+    assert.deepEqual(game.currentRound, null)
   });
 
   it('should keep track of the current Round', function() {
