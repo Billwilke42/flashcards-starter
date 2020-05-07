@@ -17,7 +17,7 @@ class Game {
     this.currentRound.returnCurrentCard()
     this.printMessage(deck, this.currentRound);
     this.printQuestion(this.currentRound);
-    if(this.currentRound.turns === 30) {
+    if (this.currentRound.turns === 30) {
       this.currentRound.endRound()
     }
   }
