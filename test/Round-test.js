@@ -79,19 +79,21 @@ describe('Round', function() {
     assert.equal(round.takeTurn('appendix'), 'incorrect!')
   });
 
-  // it('should have a takeTurn method that evaluates guesses', function() {
-  //   const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-  //   const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
-  //   const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
-  //
-  //   const deck = new Deck([card1, card2, card3]);
-  //
-  //   const round = new Round(deck);
-  //
-  //   round.returnCurrentCard();
-  //
-  //   assert.equal(round.takeTurn('sea otter'), true)
-  // })
+  it('should have a takeTurn method that evaluates guesses', function() {
+    const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+    const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
+
+    const deck = new Deck([card1, card2, card3]);
+
+    const round = new Round(deck);
+
+    round.returnCurrentCard();
+
+    round.takeTurn('pug');
+
+    assert.deepEqual(round.incorrectGuesses, [1])
+  })
 
   it('should have a takeTurn method that stores IDs of incorrect guesses', function() {
     const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
@@ -168,6 +170,6 @@ describe('Round', function() {
 
       assert.equal(round.takeTurn('playing with bubble wrap'), 'correct!');
 
-      assert.equal(round.endRound(), '** Round over! ** You answered 33% of the questions correctly!')
+      assert.equal(round.endRound(), console.log('** Round over! ** You answered 33% of the questions correctly!'))
   })
 });
