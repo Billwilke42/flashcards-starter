@@ -1,7 +1,6 @@
 const data = require('./data');
 const prototypeQuestions = data.prototypeData;
 const util = require('./util');
-const Turn = require('./Turn');
 const Card = require('./Card');
 const Deck = require('./Deck');
 const Round = require('./Round')
@@ -18,7 +17,7 @@ class Game {
     this.currentRound.returnCurrentCard()
     this.printMessage(deck, this.currentRound);
     this.printQuestion(this.currentRound);
-    if(this.currentRound.turns === 30) {
+    if (this.currentRound.turns === 30) {
       this.currentRound.endRound()
     }
   }
