@@ -1,10 +1,10 @@
 const data = require('./data');
 const prototypeQuestions = data.prototypeData;
 const util = require('./util');
-const Turn = require('../src/Turn');
-const Card = require('../src/Card');
-const Deck = require('../src/Deck');
-const Round = require('../src/Round')
+const Turn = require('./Turn');
+const Card = require('./Card');
+const Deck = require('./Deck');
+const Round = require('./Round')
 
 
 class Game {
@@ -16,9 +16,11 @@ class Game {
     const deck = new Deck(cards);
     this.currentRound = new Round(deck);
     this.currentRound.returnCurrentCard()
-    // console.log('HEY JIM', this.currentRound.currentCard)
     this.printMessage(deck, this.currentRound);
     this.printQuestion(this.currentRound);
+    if(this.currentRound.turns === 30) {
+      this.currentRound.endRound()
+    }
   }
 
   printMessage(deck, round) {
