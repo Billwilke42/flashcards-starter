@@ -1,4 +1,4 @@
-# Bills FlashCards Starter Kit
+# Bills FlashCards
 This application was made using ES6 classes to play a game in the command line. This was done by making test files for each of the classes made for the app.
 
 ## Setup
